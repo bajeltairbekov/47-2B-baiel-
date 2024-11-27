@@ -1,11 +1,14 @@
 from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from config import bot
+from random import choice
 
-game = [1, 2, 3, 4, 5, 6]
+
+games = ["🏀", "🎲", "🎯", "🎰", "🎳"]
 
 
 async def game(message: types.Message):
+    game = choice(games)
     await bot.send_dice(
         emoji=game,
         chat_id=message.from_user.id
